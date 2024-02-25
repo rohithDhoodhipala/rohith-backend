@@ -1,7 +1,7 @@
 FROM eclipse-temurin:17-jdk-jammy AS builder
 WORKDIR /app
 COPY . .
-RUN mvn clean package
+RUN ./mvnw clean package
 FROM eclipse-temurin:17
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
